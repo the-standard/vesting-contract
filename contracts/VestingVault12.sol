@@ -1,9 +1,10 @@
 // adpted from https://gist.github.com/rstormsf/7cfb0c6b7a835c0c67b4a394b4fd9383
 
-pragma solidity 0.4.24;
+// pragma solidity 0.4.24;
+pragma solidity ^0.5.0;
 
-import "openzeppelin-solidity/contracts/token/ERC20/ERC20.sol";
-import "openzeppelin-solidity/contracts/math/SafeMath.sol";
+import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
+import "@openzeppelin/contracts/math/SafeMath.sol";
 
 contract VestingVault12 {
     using SafeMath for uint256;
@@ -84,7 +85,7 @@ contract VestingVault12 {
         totalVestingCount++;
     }
 
-    function getActiveGrants(address _recipient) public view returns(uint256[]){
+    function getActiveGrants(address _recipient) public view returns(uint256[] memory){
         return activeGrants[_recipient];
     }
 
