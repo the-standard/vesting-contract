@@ -1,6 +1,5 @@
-// adpted from https://gist.github.com/rstormsf/7cfb0c6b7a835c0c67b4a394b4fd9383
+// adapted from https://gist.github.com/rstormsf/7cfb0c6b7a835c0c67b4a394b4fd9383
 
-// pragma solidity 0.4.24;
 pragma solidity ^0.5.0;
 
 import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
@@ -150,10 +149,7 @@ contract VestingVault12 {
   /// and returning all non-vested tokens to the V12 owner
   /// Secured to the V12 owner only
   /// @param _grantId grantId of the token grant recipient
-  function removeTokenGrant(uint256 _grantId)
-  external
-  onlyOwner
-  {
+  function removeTokenGrant(uint256 _grantId) external onlyOwner {
     Grant storage tokenGrant = tokenGrants[_grantId];
     address recipient = tokenGrant.recipient;
     uint16 daysVested;
@@ -185,11 +181,7 @@ contract VestingVault12 {
     return tokenGrant.amount.div(uint256(tokenGrant.vestingDuration));
   }
 
-  function changeOwner(address _newOwner)
-  external
-  onlyOwner
-  onlyValidAddress(_newOwner)
-  {
+  function changeOwner(address _newOwner) external onlyOwner onlyValidAddress(_newOwner) {
     owner = _newOwner;
     emit ChangedOwner(_newOwner);
   }
