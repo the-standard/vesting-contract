@@ -110,6 +110,15 @@ contract('VestingVault12CreateGrants', function ([ creator, other ]) {
     expect(await this.contract.totalVestingCount()).to.be.bignumber.eq('1');
   });
   
+  // TODO
+  it('checks we can remove the grant if required', async function () {
+  })
+
+  // TODO
+  it('checks we change the owner', async function () {
+  })
+
+  // Always run this last cos it moves the time forward and we cannot go back
   it('checks the events from the addTokenGrant with earlier start date', async function () {
     const address = '0x2F2E2Ed85CB968FD3315AE402997B45eC7fe0643';
     const startTime = 0; // setting to 0 will force the starttime to NOW()!
